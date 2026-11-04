@@ -2,131 +2,442 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polityka cookies – Fundacja Jelonka</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #333;
-      background: #f7f5ef;
-      line-height: 1.7;
-    }
-    header {
-      background: white;
-      padding: 20px 7%;
-      border-bottom: 1px solid #eee;
-    }
-    header img {
-      width: 150px;
-      height: auto;
-    }
-    main {
-      max-width: 850px;
-      margin: 50px auto;
-      padding: 40px;
-      background: white;
-      border-radius: 8px;
-    }
-    h1, h2 { color: #08723b; }
-    a { color: #08723b; }
-    footer {
-      padding: 25px;
-      text-align: center;
-      background: #202923;
-      color: white;
-    }
-    @media(max-width: 600px) {
-      main { margin: 20px; padding: 25px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fundacja Jelonka – z miłości do mieszkańców Jeleniej Góry i okolic. Poznaj nasze działania i wesprzyj lokalne inicjatywy.">
+<title>Fundacja Jelonka – z miłości do mieszkańców</title>
+
+<style>
+:root {
+  --green: #08723b;
+  --red: #e5241b;
+  --cream: #f7f5ef;
+  --dark: #202923;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  display: block;
+}
+
+.logo img {
+  display: block;
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--red);
+}
+
+.hero {
+  min-height: 520px;
+  padding: 100px 8%;
+  background:
+    linear-gradient(110deg, rgba(32,55,43,.94), rgba(32,55,43,.65)),
+    url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1800&q=85") center/cover;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.eyebrow {
+  color: #f0c7a9;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(38px, 6vw, 66px);
+  line-height: 1.12;
+  margin: 18px 0;
+}
+
+.hero p {
+  font-size: 19px;
+  max-width: 620px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 24px;
+  margin: 12px 10px 0 0;
+  border-radius: 4px;
+  background: var(--red);
+  color: white;
+  font-weight: bold;
+}
+
+.btn-light {
+  background: white;
+  color: var(--green);
+}
+
+section {
+  padding: 75px 8%;
+}
+
+.section-title {
+  color: var(--green);
+  font-size: 34px;
+  margin: 0 0 15px;
+}
+
+.intro {
+  max-width: 760px;
+  font-size: 18px;
+}
+
+.center {
+  text-align: center;
+}
+
+.cream {
+  background: var(--cream);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 35px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 22px rgba(0,0,0,.06);
+}
+
+.card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 23px;
+}
+
+.card h3 {
+  color: var(--green);
+  margin-top: 0;
+}
+
+.card a {
+  color: var(--red);
+  font-weight: bold;
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 35px;
+}
+
+.value {
+  border-left: 3px solid var(--red);
+  padding-left: 18px;
+}
+
+.value h3 {
+  color: var(--green);
+}
+
+.cta {
+  background: var(--green);
+  color: white;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 36px;
+}
+
+.cta p {
+  max-width: 650px;
+  margin: 0 auto 20px;
+}
+
+.contact-info {
+  margin-top: 25px;
+  font-size: 17px;
+}
+
+.contact-info a {
+  color: var(--red);
+  font-weight: bold;
+}
+
+footer {
+  background: #202923;
+  color: white;
+  padding: 35px 8%;
+  text-align: center;
+}
+
+footer p {
+  margin: 5px;
+}
+
+footer a {
+  color: #f0c7a9;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media(max-width:650px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 13px;
+  }
+
+  .hero {
+    padding: 75px 7%;
+    min-height: 450px;
+  }
+
+  section {
+    padding: 55px 7%;
+  }
+
+  .logo img {
+    width: 200px;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <a href="index.html">
+  <a class="logo" href="#">
     <img src="logo-fundacja.png.PNG" alt="Fundacja Jelonka">
   </a>
+
+  <nav>
+    <a href="#onas">O fundacji</a>
+    <a href="#dzialania">Nasze działania</a>
+    <a href="#wsparcie">Wesprzyj nas</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
 </header>
 
-<main>
-  <h1>Polityka plików cookies</h1>
+<div class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Fundacja Jelonka</div>
 
-  <p>
-    Fundacja Jelonka dba o prywatność osób odwiedzających
-    naszą stronę internetową. Poniżej wyjaśniamy, czym są
-    pliki cookies i jak mogą być wykorzystywane podczas
-    korzystania z naszej witryny.
-  </p>
+    <h1>Z miłości do mieszkańców Jeleniej Góry i okolic</h1>
 
-  <h2>1. Czym są pliki cookies?</h2>
-  <p>
-    Pliki cookies, nazywane również ciasteczkami, to niewielkie
-    pliki tekstowe zapisywane na urządzeniu użytkownika
-    podczas korzystania ze stron internetowych.
-    Mogą służyć między innymi do zapewnienia prawidłowego
-    działania witryny i zapamiętywania ustawień.
-  </p>
+    <p>
+      Wierzymy, że dobro zaczyna się blisko nas.
+      Łączymy ludzi, pomysły i działania, aby wspólnie
+      tworzyć lepsze miejsce do życia.
+    </p>
 
-  <h2>2. Jak wykorzystujemy pliki cookies?</h2>
-  <p>
-    Fundacja Jelonka nie prowadzi za pośrednictwem strony
-    internetowej profilowania odwiedzających ani nie wykorzystuje
-    narzędzi analitycznych lub reklamowych do śledzenia ich
-    aktywności.
-  </p>
-  <p>
-    Strona może korzystać z technicznie niezbędnych
-    mechanizmów związanych z jej działaniem, bezpieczeństwem
-    i obsługą przez dostawcę hostingu.
+    <a class="btn" href="#dzialania">Poznaj nasze działania</a>
+    <a class="btn btn-light" href="#wsparcie">Wesprzyj nas</a>
+  </div>
+</div>
+
+<section id="onas">
+  <h2 class="section-title">O Fundacji Jelonka</h2>
+
+  <p class="intro">
+    Fundacja Jelonka powstała z potrzeby działania,
+    pomagania i budowania lokalnej wspólnoty.
+    Bliskie są nam sprawy mieszkańców Jeleniej Góry
+    i okolic, a szczególnie osób, które potrzebują
+    wsparcia, życzliwości i obecności drugiego człowieka.
   </p>
 
-  <h2>3. Usługi podmiotów zewnętrznych</h2>
+  <p class="intro">
+    Wierzymy, że nawet małe gesty mogą przynosić
+    wielkie zmiany. Dlatego inicjujemy projekty,
+    angażujemy lokalną społeczność i zachęcamy
+    do wspólnego działania.
+  </p>
+</section>
+
+<section id="dzialania" class="cream">
+  <div class="center">
+    <h2 class="section-title">Nasze działania</h2>
+    <p class="intro" style="margin:0 auto">
+      Tworzymy inicjatywy, które niosą realną pomoc,
+      radość i nadzieję. Poznaj projekty Fundacji Jelonka.
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=85" alt="Świąteczne prezenty">
+      <div class="card-content">
+        <h3>Święty Mikołaj na Rowerze</h3>
+        <p>
+          Świąteczna inicjatywa, której celem jest
+          docieranie z prezentami, radością i dobrem
+          do najmłodszych mieszkańców.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=85" alt="Zimowy krajobraz">
+      <div class="card-content">
+        <h3>ZIMA 2026</h3>
+        <p>
+          Działania pomocowe skierowane do osób
+          doświadczających bezdomności i potrzebujących
+          wsparcia w trudnym zimowym okresie.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=85" alt="Książki">
+      <div class="card-content">
+        <h3>Biblioteka Świętego Mikołaja</h3>
+        <p>
+          Projekt promujący czytelnictwo, rozwijanie
+          dziecięcej wyobraźni i radość z odkrywania
+          świata książek.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="center">
+    <h2 class="section-title">W co wierzymy?</h2>
+    <p class="intro" style="margin:0 auto">
+      Nasze działania opieramy na wartościach,
+      które są fundamentem każdej dobrej inicjatywy.
+    </p>
+  </div>
+
+  <div class="values">
+
+    <div class="value">
+      <h3>Empatia</h3>
+      <p>Dostrzegamy potrzeby innych i reagujemy z troską.</p>
+    </div>
+
+    <div class="value">
+      <h3>Wspólnota</h3>
+      <p>Wierzymy w siłę ludzi, którzy potrafią działać razem.</p>
+    </div>
+
+    <div class="value">
+      <h3>Zaangażowanie</h3>
+      <p>Nie pozostajemy obojętni. Zamieniamy pomysły w działania.</p>
+    </div>
+
+    <div class="value">
+      <h3>Dobro</h3>
+      <p>Każdy gest ma znaczenie, a dobro warto przekazywać dalej.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="wsparcie" class="cta">
+  <h2>Razem możemy więcej</h2>
+
   <p>
-    Strona jest udostępniana z wykorzystaniem infrastruktury
-    hostingowej Cloudflare. Dostawca tej infrastruktury może
-    przetwarzać dane techniczne, w tym informacje niezbędne
-    do zapewnienia bezpieczeństwa i prawidłowego działania
-    witryny.
+    Każda forma wsparcia ma znaczenie.
+    Możesz pomóc nam realizować kolejne inicjatywy,
+    przekazać darowiznę rzeczową lub zaangażować się
+    w działania Fundacji Jelonka.
   </p>
 
-  <h2>4. Zarządzanie plikami cookies</h2>
-  <p>
-    Użytkownik może zarządzać plikami cookies za pomocą
-    ustawień swojej przeglądarki internetowej, w tym usuwać
-    zapisane pliki lub ograniczać ich zapisywanie.
-  </p>
-  <p>
-    Ograniczenie stosowania niektórych plików cookies może
-    wpłynąć na prawidłowe działanie wybranych funkcji strony.
-  </p>
+  <a class="btn btn-light" href="#kontakt">Skontaktuj się z nami</a>
+</section>
 
-  <h2>5. Zmiany polityki cookies</h2>
-  <p>
-    Polityka może być aktualizowana w przypadku zmian
-    w funkcjonowaniu strony lub wykorzystywanych usług.
-  </p>
+<section id="kontakt">
+  <div class="center">
+    <h2 class="section-title">Skontaktuj się z nami</h2>
 
-  <h2>6. Kontakt</h2>
-  <p>
-    W sprawach dotyczących prywatności można skontaktować
-    się z Fundacją Jelonka:
-  </p>
-  <p>
-    E-mail:
-    <a href="mailto:fundacjajelonka@gmail.com">
-      fundacjajelonka@gmail.com
-    </a>
-  </p>
+    <p class="intro" style="margin:0 auto">
+      Masz pomysł na wspólne działanie?
+      Chcesz wesprzeć nasze projekty lub dowiedzieć
+      się więcej o Fundacji? Napisz do nas!
+    </p>
 
-  <p><strong>Ostatnia aktualizacja: 4 listopada 2026 r.</strong></p>
-
-  <p><a href="index.html">← Powrót na stronę główną</a></p>
-</main>
+    <div class="contact-info">
+      <p>
+        E-mail:
+        <a href="mailto:fundacjajelonka@gmail.com">
+          fundacjajelonka@gmail.com
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
 
 <footer>
-  Fundacja Jelonka – Z miłości do mieszkańców Jeleniej Góry i okolic
+  <p>Fundacja Jelonka – Z miłości do mieszkańców Jeleniej Góry i okolic</p>
+  <p>
+    <a href="polityka-cookies.html">Polityka cookies</a>
+  </p>
 </footer>
 
 </body>
