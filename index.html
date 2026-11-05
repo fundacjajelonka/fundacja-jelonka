@@ -4,7 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Fundacja Jelonka – z miłości do mieszkańców Jeleniej Góry i okolic. Poznaj nasze działania i wesprzyj lokalne inicjatywy.">
+
+<meta name="description" content="Fundacja Jelonka – z miłości do mieszkańców Jeleniej Góry i okolic. Poznaj nasze inicjatywy i zaangażuj się w lokalne działania.">
+
 <title>Fundacja Jelonka – z miłości do mieszkańców</title>
 
 <style>
@@ -13,6 +15,7 @@
   --red: #e5241b;
   --cream: #f7f5ef;
   --dark: #202923;
+  --text: #333333;
 }
 
 * {
@@ -26,14 +29,16 @@ html {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  color: #333;
-  line-height: 1.6;
+  color: var(--text);
+  line-height: 1.7;
 }
 
 a {
   text-decoration: none;
   color: inherit;
 }
+
+/* NAWIGACJA */
 
 header {
   background: white;
@@ -44,10 +49,6 @@ header {
   gap: 20px;
   flex-wrap: wrap;
   border-bottom: 1px solid #eee;
-}
-
-.logo {
-  display: block;
 }
 
 .logo img {
@@ -66,11 +67,14 @@ nav {
 nav a {
   font-size: 14px;
   font-weight: 600;
+  transition: color .2s;
 }
 
 nav a:hover {
   color: var(--red);
 }
+
+/* SEKCJA GŁÓWNA */
 
 .hero {
   min-height: 520px;
@@ -110,16 +114,28 @@ h1 {
   display: inline-block;
   padding: 13px 24px;
   margin: 12px 10px 0 0;
-  border-radius: 4px;
+  border-radius: 5px;
   background: var(--red);
   color: white;
   font-weight: bold;
+  transition: transform .2s, background .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: #c91d16;
 }
 
 .btn-light {
   background: white;
   color: var(--green);
 }
+
+.btn-light:hover {
+  background: #f2f2f2;
+}
+
+/* SEKCJE */
 
 section {
   padding: 75px 8%;
@@ -128,6 +144,7 @@ section {
 .section-title {
   color: var(--green);
   font-size: 34px;
+  line-height: 1.2;
   margin: 0 0 15px;
 }
 
@@ -144,39 +161,77 @@ section {
   background: var(--cream);
 }
 
+/* KAFELKI INICJATYW */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-  margin-top: 35px;
+  gap: 26px;
+  margin-top: 40px;
 }
 
 .card {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 5px 22px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-.card img {
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.11);
+}
+
+.project-logo-wrap {
+  height: 230px;
+  padding: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f0eee8;
+}
+
+.project-logo-wrap img {
+  display: block;
   width: 100%;
-  height: 210px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
 }
 
 .card-content {
-  padding: 23px;
+  padding: 24px;
 }
 
 .card h3 {
   color: var(--green);
-  margin-top: 0;
+  margin: 0 0 12px;
+  font-size: 21px;
+  line-height: 1.3;
 }
 
-.card a {
-  color: var(--red);
-  font-weight: bold;
+.card-content p {
+  color: #555;
+  margin: 0;
 }
+
+/* POSIŁEK JELONKA */
+
+.project-note {
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: #f7f5ef;
+  border-left: 3px solid var(--red);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.project-note strong {
+  color: var(--green);
+}
+
+/* WARTOŚCI */
 
 .values {
   display: grid;
@@ -194,6 +249,8 @@ section {
   color: var(--green);
 }
 
+/* WSPARCIE */
+
 .cta {
   background: var(--green);
   color: white;
@@ -209,6 +266,8 @@ section {
   margin: 0 auto 20px;
 }
 
+/* KONTAKT */
+
 .contact-info {
   margin-top: 25px;
   font-size: 17px;
@@ -219,8 +278,10 @@ section {
   font-weight: bold;
 }
 
+/* STOPKA */
+
 footer {
-  background: #202923;
+  background: var(--dark);
   color: white;
   padding: 35px 8%;
   text-align: center;
@@ -238,7 +299,10 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* WERSJA MOBILNA */
+
 @media(max-width:650px) {
+
   header {
     justify-content: center;
   }
@@ -248,9 +312,17 @@ footer a:hover {
     gap: 13px;
   }
 
+  nav a {
+    font-size: 13px;
+  }
+
   .hero {
     padding: 75px 7%;
     min-height: 450px;
+  }
+
+  .hero p {
+    font-size: 17px;
   }
 
   section {
@@ -260,11 +332,25 @@ footer a:hover {
   .logo img {
     width: 200px;
   }
+
+  .section-title {
+    font-size: 29px;
+  }
+
+  .project-logo-wrap {
+    height: 210px;
+  }
+
+  .cta h2 {
+    font-size: 30px;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- NAGŁÓWEK -->
 
 <header>
   <a class="logo" href="#">
@@ -273,14 +359,17 @@ footer a:hover {
 
   <nav>
     <a href="#onas">O fundacji</a>
-    <a href="#dzialania">Nasze działania</a>
+    <a href="#dzialania">Nasze inicjatywy</a>
     <a href="#wsparcie">Wesprzyj nas</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
 </header>
 
+<!-- BANER GŁÓWNY -->
+
 <div class="hero">
   <div class="hero-content">
+
     <div class="eyebrow">Fundacja Jelonka</div>
 
     <h1>Z miłości do mieszkańców Jeleniej Góry i okolic</h1>
@@ -291,12 +380,16 @@ footer a:hover {
       tworzyć lepsze miejsce do życia.
     </p>
 
-    <a class="btn" href="#dzialania">Poznaj nasze działania</a>
+    <a class="btn" href="#dzialania">Poznaj nasze inicjatywy</a>
     <a class="btn btn-light" href="#wsparcie">Wesprzyj nas</a>
+
   </div>
 </div>
 
+<!-- O FUNDACJI -->
+
 <section id="onas">
+
   <h2 class="section-title">O Fundacji Jelonka</h2>
 
   <p class="intro">
@@ -313,65 +406,147 @@ footer a:hover {
     angażujemy lokalną społeczność i zachęcamy
     do wspólnego działania.
   </p>
+
 </section>
 
+<!-- NASZE INICJATYWY -->
+
 <section id="dzialania" class="cream">
+
   <div class="center">
-    <h2 class="section-title">Nasze działania</h2>
+
+    <h2 class="section-title">Nasze inicjatywy</h2>
+
     <p class="intro" style="margin:0 auto">
-      Tworzymy inicjatywy, które niosą realną pomoc,
-      radość i nadzieję. Poznaj projekty Fundacji Jelonka.
+      Dobro ma wiele twarzy. Tworzymy i rozwijamy
+      inicjatywy, które łączą mieszkańców, odpowiadają
+      na lokalne potrzeby i zmieniają dobre pomysły
+      w konkretne działania.
     </p>
+
   </div>
 
   <div class="cards">
 
+    <!-- ŚWIĘTY MIKOŁAJ NA ROWERZE -->
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=85" alt="Świąteczne prezenty">
+
+      <div class="project-logo-wrap">
+        <img
+          src="logo-mikolaj-rower.jpg"
+          alt="Logo akcji Święty Mikołaj na Rowerze">
+      </div>
+
       <div class="card-content">
+
         <h3>Święty Mikołaj na Rowerze</h3>
+
         <p>
-          Świąteczna inicjatywa, której celem jest
-          docieranie z prezentami, radością i dobrem
-          do najmłodszych mieszkańców.
+          Wyjątkowa świąteczna inicjatywa, która łączy
+          ludzi wokół idei dzielenia się dobrem.
+          Wspólnie przygotowujemy prezenty i dostarczamy
+          świąteczną radość tym, którzy na nią czekają.
         </p>
+
       </div>
     </div>
 
+    <!-- ZIMA 2026 -->
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=85" alt="Zimowy krajobraz">
+
+      <div class="project-logo-wrap">
+        <img
+          src="logo-zima.png"
+          alt="Logo projektu ZIMA 2026">
+      </div>
+
       <div class="card-content">
+
         <h3>ZIMA 2026</h3>
+
         <p>
-          Działania pomocowe skierowane do osób
-          doświadczających bezdomności i potrzebujących
-          wsparcia w trudnym zimowym okresie.
+          Inicjatywa pomocowa skierowana do osób
+          doświadczających bezdomności i znajdujących się
+          w trudnej sytuacji życiowej. W okresie zimowym
+          szczególnie ważne są ciepło, bezpieczeństwo
+          i zwykła ludzka obecność.
         </p>
+
       </div>
     </div>
 
+    <!-- BIBLIOTEKA ŚWIĘTEGO MIKOŁAJA -->
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=85" alt="Książki">
+
+      <div class="project-logo-wrap">
+        <img
+          src="logo-biblioteka.jpg"
+          alt="Logo Biblioteki Świętego Mikołaja">
+      </div>
+
       <div class="card-content">
+
         <h3>Biblioteka Świętego Mikołaja</h3>
+
         <p>
-          Projekt promujący czytelnictwo, rozwijanie
-          dziecięcej wyobraźni i radość z odkrywania
-          świata książek.
+          Inicjatywa, która rozbudza miłość do książek,
+          wspiera czytelnictwo i pokazuje, że każda
+          historia może otworzyć przed dzieckiem
+          niezwykły świat wyobraźni.
         </p>
+
+      </div>
+    </div>
+
+    <!-- POSIŁEK JELONKA -->
+
+    <div class="card">
+
+      <div class="project-logo-wrap">
+        <img
+          src="logo-posilek-jelonka.jpg"
+          alt="Logo inicjatywy Posiłek Jelonka">
+      </div>
+
+      <div class="card-content">
+
+        <h3>Posiłek Jelonka</h3>
+
+        <p>
+          Inicjatywa, której celem jest budowanie sieci
+          lokalnych restauracji i barów gotowych włączyć
+          się w pomoc osobom potrzebującym.
+        </p>
+
+        <div class="project-note">
+          <strong>Zapraszamy do współpracy!</strong>
+          Poszukujemy restauracji i barów, które chcą
+          dołączyć do naszej inicjatywy.
+        </div>
+
       </div>
     </div>
 
   </div>
+
 </section>
 
+<!-- WARTOŚCI -->
+
 <section>
+
   <div class="center">
+
     <h2 class="section-title">W co wierzymy?</h2>
+
     <p class="intro" style="margin:0 auto">
       Nasze działania opieramy na wartościach,
       które są fundamentem każdej dobrej inicjatywy.
     </p>
+
   </div>
 
   <div class="values">
@@ -397,9 +572,13 @@ footer a:hover {
     </div>
 
   </div>
+
 </section>
 
+<!-- WSPARCIE -->
+
 <section id="wsparcie" class="cta">
+
   <h2>Razem możemy więcej</h2>
 
   <p>
@@ -409,11 +588,18 @@ footer a:hover {
     w działania Fundacji Jelonka.
   </p>
 
-  <a class="btn btn-light" href="#kontakt">Skontaktuj się z nami</a>
+  <a class="btn btn-light" href="#kontakt">
+    Skontaktuj się z nami
+  </a>
+
 </section>
 
+<!-- KONTAKT -->
+
 <section id="kontakt">
+
   <div class="center">
+
     <h2 class="section-title">Skontaktuj się z nami</h2>
 
     <p class="intro" style="margin:0 auto">
@@ -423,23 +609,41 @@ footer a:hover {
     </p>
 
     <div class="contact-info">
+
       <p>
         E-mail:
         <a href="mailto:fundacjajelonka@gmail.com">
           fundacjajelonka@gmail.com
         </a>
       </p>
+
     </div>
+
   </div>
+
 </section>
 
+<!-- STOPKA -->
+
 <footer>
-  <p>Fundacja Jelonka – Z miłości do mieszkańców Jeleniej Góry i okolic</p>
+
   <p>
-    <a href="polityka-prywatnosci.html">Polityka prywatności</a>
-    &nbsp; | &nbsp;
-    <a href="polityka-cookies.html">Polityka cookies</a>
+    Fundacja Jelonka – Z miłości do mieszkańców
+    Jeleniej Góry i okolic
   </p>
+
+  <p>
+    <a href="polityka-prywatnosci.html">
+      Polityka prywatności
+    </a>
+
+    &nbsp; | &nbsp;
+
+    <a href="polityka-cookies.html">
+      Polityka cookies
+    </a>
+  </p>
+
 </footer>
 
 </body>
